@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+  client:
+    image: golang:alpine
+    container_name: "client_rpc"
+    volumes:
+      - .:/go/src/rpc
+    working_dir: /go/src/rpc/client
+    ports:
+        - "8080:8080"
+    command: go run client.go
+
+  server:
+    image: golang:alpine
+    container_name: "server_rpc"
+    volumes:
+        - .:/go/src/rpc
+    working_dir: /go/src/rpc/server
+    ports:
+        - "9090:9090"
+    command: go run server.go
+
