@@ -62,7 +62,7 @@ func (rs *ResponseStruct) Worker(ch chan byte, url string) {
 		return
 	}
 
-	time.Sleep(time.Duration(rand.Intn(3)) * time.Second)
+	time.Sleep(time.Duration(rand.Intn(3)+1) * time.Second)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
